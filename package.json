@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/annkaliza/TinnyApp/issues"
   },
-  "homepage": "https://github.com/annkaliza/TinnyApp#readme"
+  "homepage": "https://github.com/annkaliza/TinnyApp#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
