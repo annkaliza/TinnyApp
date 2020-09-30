@@ -19,9 +19,9 @@
       </div>
     </div>
     <div class="form-group mb-2">
-      <% if(username) {%>
+      <% if(user && user.email) {%>
 
-      <span style="color: white">Logged in as <%=username %></span>
+      <span style="color: white">Logged in as <%=user.email %></span>
       <a class="nav-item nav-link" href="/logout">LogOut</a>
 
       <% } else {%>
