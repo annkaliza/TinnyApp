@@ -103,7 +103,7 @@ app.post("/login", (req, res) => {
 
 app.get("/logout", (req, res) => {
   res.clearCookie("username");
-  res.redirect("/login");
+  res.redirect("/urls");
 });
 
 app.listen(PORT, () => {
