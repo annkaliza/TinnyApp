@@ -6,7 +6,7 @@ app.set("view engine", "ejs");
 const PORT = 8080; // default port 8080
 
 const urlDatabase = {
-  b2xVn2: "http://www.lighthouselabs.ca",
+  "b2xVn2": "http://www.lighthouselabs.ca",
   "9sm5xK": "http://www.google.com",
 };
 
@@ -55,6 +55,15 @@ app.post("/urls/:shortURL/delete", (req, res) => {
   res.redirect("/urls");
 });
 
+app.post("/urls/:id", (req, res) => {
+  const id = req.params.id;
+  const newUrl = req.body.longURL;
+  console.log(  urlDatabase[id].longURL);
+
+  urlDatabase[id] = newUrl;
+
+  res.redirect("/urls");
+});
 
 
 app.listen(PORT, () => {
