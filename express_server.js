@@ -69,7 +69,7 @@ app.get("/login", (req, res) => {
 });
 
 app.get("/logout", (req, res) => {
-  res.clearCookie("username");
+  res.clearCookie("user_id");
   res.redirect("/urls");
 });
 
@@ -100,11 +100,25 @@ app.post("/urls/:id", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
-  const email = req.body.email;
-  const password = req.body.password;
+  let user = getUserByEmail(req.body.email, users);
 
-  res.cookie("username", email);
+  if (!user) {
+    res
+      .status(403)
+      .render('error', "Account not exist");
+    return;
+  }
 
+  if (user) {
+    if (!bcrypt.compareSync(req.body.password, user.password)) {
+      res
+        .status(403)
+        .render('error', "Wrong logins");
+      return;
+    }
+  }
+
+  res.cookie("user_id", user.id);
   res.redirect("/urls");
 });
 
