@@ -1,12 +1,12 @@
+const urlDatabase = {};
 
-const urlDatabase = {
-  b6UTxQ: { longURL: "https://www.tsn.ca", userID: "aJ48lW" },
-  i3BoGr: { longURL: "https://www.google.ca", userID: "aJ48lW" },
-};
+// a function that will help us to generate a random string to use as ID
 
 const generateRandomString = () => {
   return Math.random().toString(20).substring(2, 6);
 };
+
+// lookup function for user in User's db
 
 const getUserByEmail = (email, database) => {
   for (let user in database) {
@@ -16,6 +16,10 @@ const getUserByEmail = (email, database) => {
   }
   return undefined;
 };
+
+
+// FUNCTION THAT WILL FILTER ONLY USER'S URL
+
 const urlsForUser = (id) => {
   let urlById = {};
   for (let url in urlDatabase) {
@@ -28,4 +32,9 @@ const urlsForUser = (id) => {
   return urlById;
 };
 
-module.exports  = { getUserByEmail, generateRandomString, urlsForUser, urlDatabase};
+module.exports = {
+  getUserByEmail,
+  generateRandomString,
+  urlsForUser,
+  urlDatabase,
+};
