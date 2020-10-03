@@ -15,7 +15,7 @@
     <div class="card text-center">
       <div class="card-header"></div>
       <div class="card-body">
-        <h5 class="card-title">TinyURL for: <%= longURL %></h5>
+        <h5 class="card-title">TinyURL for: <%=longURL["longURL"] %></h5>
         <p class="card-text">
           Short URL: <a href="/u/<%= shortURL %>"><%= shortURL %></a>
           <form class="form-inline" action="/urls/<%= shortURL %>" method="POST">
@@ -26,7 +26,7 @@
                 class="form-control"
                 type="text"
                 name="longURL"
-                placeholder= "<%= longURL %>"
+                placeholder= "<%= longURL["longURL"]  %>"
               />
                
               <button type="submit" class="btn btn-primary">Update</button>
